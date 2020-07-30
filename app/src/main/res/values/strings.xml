@@ -3,4 +3,6 @@
     <string name="title">Title:</string>
     <string name="author">Author:</string>
     <string name="publishing_company">Publishing Company:</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
 </resources>
