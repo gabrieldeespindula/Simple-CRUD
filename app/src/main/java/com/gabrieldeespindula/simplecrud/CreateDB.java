@@ -19,7 +19,13 @@ public class CreateDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        String sql = "CREATE TABLE "+TABLE_NAME+" ("
+                + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + TITLE + " text,"
+                + AUTHOR + " text,"
+                + COMPANY + " text"
+                +")";
+        db.execSQL(sql);
     }
 
     @Override
