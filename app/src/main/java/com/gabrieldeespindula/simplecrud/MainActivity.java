@@ -7,6 +7,7 @@ import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -30,10 +31,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 R.layout.gridlayout,cursor,nameSpaces,idViews, 0);
         list = (ListView)findViewById(R.id.listView);
         list.setAdapter(adapter);
+        list.setOnClickListener(this);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String code;
+                cursor.moveToPosition(position);
+                code = cursor.getString(cursor.getColumnIndexOrThrow(CreateDB.ID));
+                Intent intent = new Intent(MainActivity.this, Change.class);
+                intent.putExtra("code", code);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
+        if (v.getId()==R.id.floatingActionButton){
         startActivity(new Intent(this, Edit.class));
+        }
     }
 }
