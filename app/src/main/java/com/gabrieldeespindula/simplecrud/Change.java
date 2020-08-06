@@ -1,8 +1,10 @@
 package com.gabrieldeespindula.simplecrud;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -33,5 +35,16 @@ public class Change extends AppCompatActivity {
         book.setText(cursor.getString(cursor.getColumnIndexOrThrow(CreateDB.TITLE)));
         author.setText(cursor.getString(cursor.getColumnIndexOrThrow(CreateDB.AUTHOR)));
         company.setText(cursor.getString(cursor.getColumnIndexOrThrow(CreateDB.COMPANY)));
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                crud.updateDB(Integer.parseInt(code),
+                        book.getText().toString(),author.getText().toString(),
+                        company.getText().toString());
+                Intent intent = new Intent(Change.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }
