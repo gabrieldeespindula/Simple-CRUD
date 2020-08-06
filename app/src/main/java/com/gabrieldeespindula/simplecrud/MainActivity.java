@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         newActivity.setOnClickListener(this);
 
         DBController crud = new DBController(getBaseContext());
-        Cursor cursor = crud.loadingDB();
+        final Cursor cursor = crud.loadingDB();
 
         String[] nameSpaces = new String[] {CreateDB.ID, CreateDB.TITLE};
         int[] idViews = new int[] {R.id.idBook, R.id.nameBook};
@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 R.layout.gridlayout,cursor,nameSpaces,idViews, 0);
         list = (ListView)findViewById(R.id.listView);
         list.setAdapter(adapter);
-        list.setOnClickListener(this);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
