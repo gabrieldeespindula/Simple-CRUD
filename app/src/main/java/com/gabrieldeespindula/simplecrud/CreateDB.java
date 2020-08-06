@@ -5,13 +5,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class CreateDB extends SQLiteOpenHelper {
-    private static final String NAME_DATABASE = "DataBase.db";
-    private static final String TABLE_NAME = "Books";
-    private static final String ID = "_id";
-    private static final String TITLE = "Title";
-    private static final String AUTHOR = "Author";
-    private static final String COMPANY = "Company";
-    private static final int VERSION = 1;
+    public static final String NAME_DATABASE = "DataBase.db";
+    public static final String TABLE_NAME = "Books";
+    public static final String ID = "_id";
+    public static final String TITLE = "Title";
+    public static final String AUTHOR = "Author";
+    public static final String COMPANY = "Company";
+    public static final int VERSION = 1;
 
     public CreateDB(Context context) {
         super(context, NAME_DATABASE, null, VERSION);

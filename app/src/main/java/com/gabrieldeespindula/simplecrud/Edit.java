@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Edit extends AppCompatActivity implements View.OnClickListener {
     EditText bookTitle;
@@ -23,12 +24,20 @@ public class Edit extends AppCompatActivity implements View.OnClickListener {
         bookPublishingCompany = findViewById(R.id.editTextBookPublishingCompany);
         buttonSave = findViewById(R.id.buttonSave);
         buttonDelete = findViewById(R.id.buttonDelete);
+        buttonSave.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if (v.getId()==R.id.buttonSave){
+            DBController crud = new DBController(getBaseContext());
+            String titleString = bookTitle.getText().toString();
+            String authorString = bookAuthor.getText().toString();
+            String companyString = bookPublishingCompany.getText().toString();
+            String result;
+            result = crud.insertDB(titleString,authorString,companyString);
 
+            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
         }if (v.getId()==R.id.buttonDelete){
 
         }
