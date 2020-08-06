@@ -57,20 +57,4 @@ public class DBController {
         db.close();
         return cursor;
     }
-    public void updateDB(int id, String title, String author, String company){
-        ContentValues values;
-        String where;
-
-        db = dbHelper.getWritableDatabase();
-
-        where = CreateDB.ID + "=" + id;
-
-        values = new ContentValues();
-        values.put(CreateDB.TITLE, title);
-        values.put(CreateDB.AUTHOR, author);
-        values.put(CreateDB.COMPANY, company);
-
-        db.update(CreateDB.TABLE_NAME,values,where,null);
-        db.close();
-    }
 }
