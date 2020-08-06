@@ -16,7 +16,7 @@
         android:text="ID" />
 
     <TextView
-        android:id="@+id/nomeLivro"
+        android:id="@+id/nameBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
