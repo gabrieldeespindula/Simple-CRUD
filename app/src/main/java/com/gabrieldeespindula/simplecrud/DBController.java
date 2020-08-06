@@ -26,9 +26,9 @@ public class DBController {
         db.close();
 
         if (result ==-1) {
-            return "Erro ao inserir registro";
+            return "Error inserting data.";
         }else {
-            return "Registro Inserido com sucesso”;
+            return "Data inserted successfully.";
         }
     }
 }
