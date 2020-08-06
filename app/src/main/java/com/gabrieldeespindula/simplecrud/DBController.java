@@ -73,4 +73,10 @@ public class DBController {
         db.update(CreateDB.TABLE_NAME,values,where,null);
         db.close();
     }
+    public void deleteByID(int id){
+        String where = CreateDB.ID + "=" + id;
+        db = dbHelper.getReadableDatabase();
+        db.delete(CreateDB.TABLE_NAME,where,null);
+        db.close();
+    }
 }
