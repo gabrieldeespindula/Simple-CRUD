@@ -2,6 +2,7 @@ package com.gabrieldeespindula.simplecrud;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 public class DBController {
@@ -30,5 +31,17 @@ public class DBController {
         }else {
             return "Data inserted successfully.";
         }
+    }
+    public Cursor loadingDB(){
+        Cursor cursor;
+        String[] spaces =  {dbHelper.ID,dbHelper.TITLE};
+        db = dbHelper.getReadableDatabase();
+        cursor = db.query(dbHelper.TABLE_NAME, spaces, null, null, null, null, null, null);
+
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
     }
 }
