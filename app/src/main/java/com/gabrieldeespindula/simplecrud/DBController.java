@@ -44,4 +44,17 @@ public class DBController {
         db.close();
         return cursor;
     }
+    public Cursor loadingDBById(int id){
+        Cursor cursor;
+        String[] campos =  {dbHelper.ID,dbHelper.TITLE,dbHelper.AUTHOR,dbHelper.COMPANY};
+        String where = CreateDB.ID + "=" + id;
+        db = dbHelper.getReadableDatabase();
+        cursor = db.query(CreateDB.TABLE_NAME,campos,where, null, null, null, null, null);
+
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
+    }
 }
